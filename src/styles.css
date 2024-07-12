@@ -1,0 +1,52 @@
+.editor-container {
+  border: 1px solid #ccc;
+  padding: 16px;
+}
+
+.editor-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-input {
+  min-height: 200px;
+  border: none;
+  outline: none;
+}
+
+.editor-placeholder {
+  color: #aaa;
+}
+
+.ui-identifier-node {
+  display: inline-block;
+  background-color: #e0f7fa;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.attribute-node {
+  display: inline-block;
+  background-color: #ffeb3b;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  z-index: 1000;
+}
+
+.dropdown button {
+  display: block;
+  margin-bottom: 4px;
+  width: 100%;
+  text-align: left;
+}
