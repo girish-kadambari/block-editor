@@ -1,19 +1,14 @@
-import React from 'react';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
-import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import { UiIdentifierNode } from './nodes/UiIdentifierNode';
-import { AttributeNode } from './nodes/AttributeNode';
+import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
 import ExampleTheme from './ExampleTheme';
-import DropdownPlugin from './plugins/DropdownPlugin';
+import { AttributeNode } from './nodes/AttributeNode';
+import { ReadOnlyNode } from './nodes/ReadOnlyNode';
+import { UiIdentifierNode } from './nodes/UiIdentifierNode';
 import AutoPopulatePlugin from './plugins/AutoPopulatePlugin';
 import TreeViewPlugin from './plugins/TreeViewPlugin';
-import { ReadOnlyNode } from './nodes/ReadOnlyNode';
-import { EditorState } from 'lexical';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some text...</div>;
