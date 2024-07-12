@@ -18,35 +18,34 @@
   color: #aaa;
 }
 
-.ui-identifier-node {
+.test-data-node {
   display: inline-block;
-  background-color: #e0f7fa;
   padding: 2px 4px;
   border-radius: 4px;
   margin: 2px;
-  cursor: pointer;
+}
+
+.parameter-node {
+  background-color: #e0f7fa;
+}
+
+.runtime-node {
+  background-color: #ffeb3b;
+}
+
+.global-node {
+  background-color: #c8e6c9;
+}
+
+.ui-identifier-node {
+  background-color: #b3e5fc;
 }
 
 .attribute-node {
-  display: inline-block;
-  background-color: #ffeb3b;
-  padding: 2px 4px;
-  border-radius: 4px;
-  margin: 2px;
-  cursor: pointer;
+  background-color: #ffccbc;
 }
 
-.dropdown {
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 8px;
-  z-index: 1000;
-}
-
-.dropdown button {
-  display: block;
-  margin-bottom: 4px;
-  width: 100%;
-  text-align: left;
+.readonly {
+  user-select: none;
+  cursor: default;
 }

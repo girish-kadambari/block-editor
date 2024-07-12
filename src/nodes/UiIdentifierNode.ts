@@ -21,8 +21,8 @@ export class UiIdentifierNode extends TextNode {
 
   createDOM() {
     const element = document.createElement("span");
-    element.className = "ui-identifier-node";
     element.textContent = this.__text;
+    element.className = "text-xl ui-identifier-node"
     element.setAttribute("contenteditable", "true");
     return element;
   }

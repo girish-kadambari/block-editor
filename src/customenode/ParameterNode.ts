@@ -1,0 +1,62 @@
+import { NLP_BLOCK_TYPE } from "../nlp-contants";
+import { SerializedTestDataNode, TestDataNode } from "./TestDataNode";
+import { $applyNodeReplacement, $createTextNode } from "lexical";
+
+export class ParameterNode extends TestDataNode {
+  static getType(): string {
+    return NLP_BLOCK_TYPE.parameter;
+  }
+
+  createDOM() {
+    const element = super.createDOM();
+    element.className += " parameter-node";
+    element.textContent = `@|${this.__value}|`;
+    return element;
+  }
+
+  updateDOM(prevNode: ParameterNode, dom: HTMLElement) {
+    if (prevNode.__value !== this.__value) {
+      dom.textContent = `@|${this.__value}|`;
+      return true;
+    }
+    return false;
+  }
+
+  canBeEmpty(): boolean {
+    return true;
+  }
+
+  static importJSON(serializedNode: SerializedTestDataNode) {
+    const { value, uuid, hasValue, more_details, isEncrypted } = serializedNode;
+    return new ParameterNode(
+      NLP_BLOCK_TYPE.parameter,
+      value,
+      uuid,
+      hasValue,
+      more_details,
+      isEncrypted
+    );
+  }
+}
+
+export function $createParameterNode(
+  value: string,
+  uuid: string,
+  hasValue?: boolean,
+  moreDetails?: object,
+  isEncrypted?: boolean
+) {
+  const node = new ParameterNode(
+    NLP_BLOCK_TYPE.parameter,
+    value,
+    uuid,
+    hasValue,
+    moreDetails,
+    isEncrypted
+  );
+  return $applyNodeReplacement(node);
+}
+
+export function $isParameterNode(node: any): node is ParameterNode {
+  return node instanceof ParameterNode;
+}

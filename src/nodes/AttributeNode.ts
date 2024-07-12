@@ -1,14 +1,14 @@
-import { TextNode, SerializedTextNode, NodeKey } from 'lexical';
+import { TextNode, SerializedTextNode, NodeKey } from "lexical";
 
 type SerializedAttributeNode = {
-  type: 'attribute';
+  type: "attribute";
   text: string;
   version: number;
 } & SerializedTextNode;
 
 export class AttributeNode extends TextNode {
   static getType() {
-    return 'attribute';
+    return "attribute";
   }
 
   static clone(node: AttributeNode) {
@@ -20,13 +20,14 @@ export class AttributeNode extends TextNode {
   }
 
   createDOM() {
-    const element = document.createElement('span');
-    element.className = 'attribute-node';
+    const element = document.createElement("span");
+    element.className = "attribute-node";
     element.textContent = this.__text;
-    element.setAttribute('contenteditable', 'false');
+    element.setAttribute("contenteditable", "false");
     return element;
   }
 
+  
   updateDOM(prevNode: AttributeNode, dom: HTMLElement) {
     if (prevNode.__text !== this.__text) {
       dom.textContent = this.__text;
@@ -43,24 +44,8 @@ export class AttributeNode extends TextNode {
   exportJSON(): SerializedAttributeNode {
     return {
       ...super.exportJSON(),
-      type: 'attribute',
+      type: "attribute",
     };
-  }
-
-  canBeEmpty() {
-    return false;
-  }
-
-  isInline() {
-    return true;
-  }
-
-  canBeDeleted() {
-    return false;
-  }
-
-  isTextEntity() {
-    return true;
   }
 }
 

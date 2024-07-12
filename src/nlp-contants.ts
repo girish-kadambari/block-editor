@@ -1,0 +1,42 @@
+export enum NLP_BLOCK_TYPE {
+    "readonly_text" = "readonly_text",
+    "raw" = "raw",
+    "parameter" = "parameter",
+    "runtime" = "runtime",
+    "global" = "global",
+    "random" = "random",
+    "function" = "function",
+    "phone_number" = "phone_number",
+    "mail_box" = "mail_box",
+    "upload_path" = "upload_path",
+    "ui_identifier" = "ui_identifier",
+    "attribute" = "attribute",
+    "selectable" = "selectable",
+    "editable_text" = "editable_text",
+    "set_name" = "set_name",
+    "salesforce_connection" = "salesforce_connection",
+    "salesforce_object" = "salesforce_object",
+    "salesforce_application" = "salesforce_application",
+    "salesforce_tab" = "salesforce_tab",
+    "salesforce_object_form" = "salesforce_object_form",
+    "action" = "action",
+  }
+
+  export enum TestDataType {
+    raw = 'raw',
+    parameter = 'parameter',
+    runtime = 'runtime',
+    global = 'global',
+    environment = 'environment',
+    random = 'random',
+    function = 'function',
+    phone_number = 'phone_number',
+    mail_box = 'mail_box',
+    upload_path = 'upload_path',
+    salesforce_connection = 'salesforce_connection',
+    salesforce_object = 'salesforce_object',
+    salesforce_application = 'salesforce_application',
+    salesforce_tab = 'salesforce_tab',
+    salesforce_object_form = 'salesforce_object_form'
+  }
+  
