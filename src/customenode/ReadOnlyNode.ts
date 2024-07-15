@@ -1,4 +1,4 @@
-import { TextNode, SerializedTextNode, NodeKey } from "lexical";
+import { NodeKey, SerializedTextNode, TextNode } from "lexical";
 
 type SerializedAttributeNode = {
   type: "readonly";
@@ -24,7 +24,7 @@ export class ReadOnlyNode extends TextNode {
     element.className = "readonly-node";
     element.textContent = this.__text;
     element.ariaReadOnly = "true";
-    element.ariaDisabled ="true";
+    element.ariaDisabled = "true";
     element.contentEditable = "false";
     return element;
   }
@@ -49,16 +49,13 @@ export class ReadOnlyNode extends TextNode {
     };
   }
 
-  
-   
   canInsertTextAfter(): boolean {
-      return false;
+    return false;
   }
   canInsertTextBefore(): boolean {
     return false;
+  }
 }
-}
-
 
 export function $createReadonlyNode(text: string) {
   return new ReadOnlyNode(text);

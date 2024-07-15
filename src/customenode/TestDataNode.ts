@@ -88,7 +88,7 @@ export class TestDataNode extends ElementNode {
   }
 
   canBeEmpty(): boolean {
-      return true;
+    return true;
   }
 
   exportJSON(): SerializedTestDataNode {

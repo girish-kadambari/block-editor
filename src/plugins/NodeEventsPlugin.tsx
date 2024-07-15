@@ -1,20 +1,20 @@
-import { $createTextNode, $getNodeByKey, LexicalNode } from "lexical";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
+import { $createTextNode, $getNodeByKey, LexicalNode } from "lexical";
+import { useLayoutEffect, useRef, useState } from "react";
+import { usePopper } from "react-popper";
+import { NLP_BLOCK_TYPE } from "../constants";
+import { $createGlobalNode, GlobalNode } from "../customenode/GlobalNode";
 import {
   $createParameterNode,
   ParameterNode,
 } from "../customenode/ParameterNode";
+import { $createRuntimeNode, RuntimeNode } from "../customenode/RuntimeNode";
 import {
   $createUiIdentifierNode,
   UiIdentifierNode,
 } from "../customenode/UiIdentifierNode";
-import { $createRuntimeNode, RuntimeNode } from "../customenode/RuntimeNode";
-import { $createGlobalNode, GlobalNode } from "../customenode/GlobalNode";
 import { Dropdown } from "../Dropdown";
-import { NLP_BLOCK_TYPE } from "../constants";
-import { useRef, useState, useLayoutEffect } from "react";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { usePopper } from "react-popper";
 
 const options = [
   { name: "Plain Text", type: NLP_BLOCK_TYPE.raw },
@@ -43,7 +43,7 @@ const createNode = (type: string, value: string, uuid: string) => {
   }
 };
 
-const EditorWithDropdown = () => {
+const NodeEventsPlugin = () => {
   const [dropdownKey, setDropdownKey] = useState<string | null>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownRef, setDropdownRef] = useState(null);
@@ -169,4 +169,4 @@ const EditorWithDropdown = () => {
   );
 };
 
-export default EditorWithDropdown;
+export default NodeEventsPlugin;

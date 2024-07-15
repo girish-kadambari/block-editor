@@ -1,4 +1,3 @@
-
 import { NLP_BLOCK_TYPE } from "../nlp-contants";
 import { TestDataNode, SerializedTestDataNode } from "./TestDataNode";
 import { $applyNodeReplacement, $createTextNode } from "lexical";

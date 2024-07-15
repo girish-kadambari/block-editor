@@ -4,15 +4,13 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
-import { blocks } from "./blockData"; // Importing blocks from blocksData.ts
+import { blocks } from "./blockData";
 import { GlobalNode } from "./customenode/GlobalNode";
 import { ParameterNode } from "./customenode/ParameterNode";
 import { ReadOnlyNode } from "./customenode/ReadOnlyNode";
 import { RuntimeNode } from "./customenode/RuntimeNode";
 import { TestDataNode } from "./customenode/TestDataNode";
 import { UiIdentifierNode } from "./customenode/UiIdentifierNode";
-import { DropdownProvider } from "./DropdownContext";
-import DropdownMenuPlugin from "./DropdownMenuPlugin";
 import ExampleTheme from "./ExampleTheme";
 import AutoPopulatePlugin from "./plugins/AutoPopulatePlugin";
 import EditorWithDropdown from "./plugins/NodeEventsPlugin";
@@ -40,22 +38,19 @@ const editorConfig = {
 export default function App() {
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <DropdownProvider>
-        <div className="editor-container">
-          <div className="editor-inner">
-            <PlainTextPlugin
-              contentEditable={<ContentEditable className="editor-input" />}
-              placeholder={<Placeholder />}
-              ErrorBoundary={LexicalErrorBoundary}
-            />
-            <HistoryPlugin />
-            <AutoFocusPlugin />
-            <AutoPopulatePlugin blocks={blocks} />
-            <DropdownMenuPlugin />
-            <EditorWithDropdown />
-          </div>
+      <div className="editor-container">
+        <div className="editor-inner">
+          <PlainTextPlugin
+            contentEditable={<ContentEditable className="editor-input" />}
+            placeholder={<Placeholder />}
+            ErrorBoundary={LexicalErrorBoundary}
+          />
+          <HistoryPlugin />
+          <AutoFocusPlugin />
+          <AutoPopulatePlugin blocks={blocks} />
+          <EditorWithDropdown />
         </div>
-      </DropdownProvider>
+      </div>
     </LexicalComposer>
   );
 }

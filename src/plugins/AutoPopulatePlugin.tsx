@@ -1,33 +1,35 @@
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { useEffect } from 'react';
-import { $createTextNode, $createParagraphNode, $getRoot, $getNodeByKey } from 'lexical';
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { $createParagraphNode, $getRoot } from "lexical";
+import { useEffect } from "react";
 
-
-import { $createAttributeNode } from '../nodes/AttributeNode';
-import { BlockType } from '../utils';
-import { $createParameterNode } from '../customenode/ParameterNode';
-import { $createUiIdentifierNode } from '../customenode/UiIdentifierNode';
-import { $createRuntimeNode } from '../customenode/RuntimeNode';
-import { $createGlobalNode } from '../customenode/GlobalNode';
-import { $createReadonlyNode } from '../customenode/ReadOnlyNode';
+import { $createGlobalNode } from "../customenode/GlobalNode";
+import { $createParameterNode } from "../customenode/ParameterNode";
+import { $createReadonlyNode } from "../customenode/ReadOnlyNode";
+import { $createRuntimeNode } from "../customenode/RuntimeNode";
+import { $createUiIdentifierNode } from "../customenode/UiIdentifierNode";
+import { BlockType } from "../utils";
 
 const createNode = (block: BlockType) => {
   switch (block.type) {
-    case 'parameter':
+    case "parameter":
       return $createParameterNode(block.value, block.uuid);
-    case 'ui_identifier':
+    case "ui_identifier":
       return $createUiIdentifierNode(block.value, block.uuid);
-    case 'runtime':
+    case "runtime":
       return $createRuntimeNode(block.value, block.uuid);
-    case 'global':
+    case "global":
       return $createGlobalNode(block.value, block.uuid);
-    case 'readonly_text':
+    case "readonly_text":
     default:
-     return $createReadonlyNode(block.value);
+      return $createReadonlyNode(block.value);
   }
 };
 
-export default function AutoPopulatePlugin({ blocks }: { blocks: BlockType[] }) {
+export default function AutoPopulatePlugin({
+  blocks,
+}: {
+  blocks: BlockType[];
+}) {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
@@ -36,7 +38,7 @@ export default function AutoPopulatePlugin({ blocks }: { blocks: BlockType[] }) 
       root.clear();
       const paragraphNode = $createParagraphNode();
 
-      blocks.forEach(block => {
+      blocks.forEach((block) => {
         const node = createNode(block);
         paragraphNode.append(node);
       });

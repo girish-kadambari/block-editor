@@ -104,13 +104,9 @@ type DynamicTypes =
   | "attribute"
   | "selectable";
 
-
-
 //Split nlp templates
 const splitTextByTemplate = (value) => {
   if (typeof value != "string") return value;
   if (!value?.length) return [];
   return value.match(/(\$|\@|\#){[^{}]+}|[^$@#{}]+/g).filter((i) => i.length);
 };
-
-
