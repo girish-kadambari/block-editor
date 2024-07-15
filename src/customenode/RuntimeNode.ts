@@ -1,7 +1,6 @@
-
 import { NLP_BLOCK_TYPE } from "../nlp-contants";
 import { TestDataNode, SerializedTestDataNode } from "./TestDataNode";
-import { $createTextNode } from "lexical";
+import { $applyNodeReplacement, $createTextNode } from "lexical";
 
 export class RuntimeNode extends TestDataNode {
   static getType(): string {
@@ -13,6 +12,18 @@ export class RuntimeNode extends TestDataNode {
     element.className += " runtime-node";
     element.textContent = `$|${this.__value}|`;
     return element;
+  }
+
+  static clone(node: RuntimeNode) {
+    return new RuntimeNode(
+      node.__value_type,
+      node.__value,
+      node.__uuid,
+      node.__hasValue,
+      node.__more_details,
+      node.__isEncrypted,
+      node.__key
+    );
   }
 
   updateDOM(prevNode: RuntimeNode, dom: HTMLElement) {
@@ -51,8 +62,7 @@ export function $createRuntimeNode(
     moreDetails,
     isEncrypted
   );
-  node.append($createTextNode(value));
-  return node;
+  return $applyNodeReplacement(node);
 }
 
 export function $isRuntimeNode(node: any): node is RuntimeNode {

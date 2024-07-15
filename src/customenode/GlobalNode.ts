@@ -1,7 +1,6 @@
-
 import { NLP_BLOCK_TYPE } from "../nlp-contants";
 import { TestDataNode, SerializedTestDataNode } from "./TestDataNode";
-import { $createTextNode } from "lexical";
+import { $applyNodeReplacement, $createTextNode } from "lexical";
 
 export class GlobalNode extends TestDataNode {
   static getType(): string {
@@ -13,6 +12,18 @@ export class GlobalNode extends TestDataNode {
     element.className += "global-node";
     element.textContent = `*|${this.__value}|`;
     return element;
+  }
+
+  static clone(node: GlobalNode) {
+    return new GlobalNode(
+      node.__value_type,
+      node.__value,
+      node.__uuid,
+      node.__hasValue,
+      node.__more_details,
+      node.__isEncrypted,
+      node.__key
+    );
   }
 
   updateDOM(prevNode: GlobalNode, dom: HTMLElement) {
@@ -51,8 +62,7 @@ export function $createGlobalNode(
     moreDetails,
     isEncrypted
   );
-  node.append($createTextNode(value));
-  return node;
+  return $applyNodeReplacement(node);
 }
 
 export function $isGlobalNode(node: any): node is GlobalNode {

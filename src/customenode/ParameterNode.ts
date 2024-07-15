@@ -22,6 +22,18 @@ export class ParameterNode extends TestDataNode {
     return false;
   }
 
+  static clone(node: ParameterNode) {
+    return new ParameterNode(
+      node.__value_type,
+      node.__value,
+      node.__uuid,
+      node.__hasValue,
+      node.__more_details,
+      node.__isEncrypted,
+      node.__key
+    );
+  }
+
   canBeEmpty(): boolean {
     return true;
   }
