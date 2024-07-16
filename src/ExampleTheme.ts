@@ -7,6 +7,6 @@
  */
 export default {
   ltr: 'ltr',
-  paragraph: 'editor-paragraph',
+  paragraph: '',
   rtl: 'rtl',
 };

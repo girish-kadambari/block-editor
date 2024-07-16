@@ -9,7 +9,7 @@ export class UiIdentifierNode extends TestDataNode {
 
   createDOM() {
     const element = super.createDOM();
-    element.className += " ui-identifier-node bg-red";
+    element.className += " inline-block text-primary-700 flex-inline py-0.5 px-1 rounded outline-none  max-w-[240px] cursor-pointer";
     element.textContent = `${this.__value}`;
     return element;
   }

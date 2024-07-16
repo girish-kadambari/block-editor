@@ -123,3 +123,12 @@ export const blocks = [
     },
   },
 ];
+
+export function generateBlocks(a) {
+  let steps = [];
+  for (let i = 0; i < a; i++) {
+    steps.push(blocks);
+  }
+
+  return steps;
+}

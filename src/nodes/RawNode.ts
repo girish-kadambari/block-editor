@@ -9,7 +9,8 @@ export class RawNode extends TestDataNode {
 
   createDOM() {
     const element = super.createDOM();
-    element.className += " runtime-node ";
+    element.className +=
+      " inline-block text-unique-500 px-1 py-0.5 rounded outline-none cursor-pointer  max-w-[350px] whitespace-normal ";
     element.textContent = `${this.__value}`;
     return element;
   }

@@ -9,7 +9,7 @@ export class ParameterNode extends TestDataNode {
 
   createDOM() {
     const element = super.createDOM();
-    element.className += " parameter-node";
+    element.className = " inline-block text-unique-500 px-1 py-0.5 rounded outline-none cursor-pointer  max-w-[350px] whitespace-normal";
     element.textContent = `@|${this.__value}|`;
     element.contentEditable = "false"
     return element;

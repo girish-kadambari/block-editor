@@ -21,7 +21,7 @@ export class ReadOnlyNode extends TextNode {
 
   createDOM() {
     const element = document.createElement("span");
-    element.className = "readonly-node";
+    element.className = " px-1 py-0.5 rounded text-unique-600";
     element.textContent = this.__text;
     element.ariaReadOnly = "true";
     element.ariaDisabled = "true";

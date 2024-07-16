@@ -61,7 +61,7 @@ export class TestDataNode extends ElementNode {
 
   createDOM() {
     const element = document.createElement("span");
-    element.className = `test-data-node ${this.__value_type}`;
+    element.className = ` ${this.__value_type}`;
     element.textContent = this.__value;
     return element;
   }
