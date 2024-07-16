@@ -1,3 +1,12 @@
+import {
+  GlobalNode,
+  ParameterNode,
+  RawNode,
+  ReadOnlyNode,
+  RuntimeNode,
+  TestDataNode,
+  UiIdentifierNode,
+} from "./nodes/index";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -5,17 +14,10 @@ import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
 import { blocks } from "./blockData";
-import { GlobalNode } from "./customenode/GlobalNode";
-import { ParameterNode } from "./customenode/ParameterNode";
-import { ReadOnlyNode } from "./customenode/ReadOnlyNode";
-import { RuntimeNode } from "./customenode/RuntimeNode";
-import { TestDataNode } from "./customenode/TestDataNode";
-import { UiIdentifierNode } from "./customenode/UiIdentifierNode";
 import ExampleTheme from "./ExampleTheme";
-import AutoPopulatePlugin from "./plugins/AutoPopulatePlugin";
-import EditorWithDropdown from "./plugins/TestDataDropDownEventPlugin";
-import TreeViewPlugin from "./plugins/TreeViewPlugin";
-import { RawNode } from "./customenode/RawNode";
+import AutoPopulatePlugin from "@plugins/AutoPopulatePlugin";
+import TestDataDropDownEventPlugin from "@plugins/TestDataDropDownEventPlugin";
+import TreeViewPlugin from "@plugins/TreeViewPlugin";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some text...</div>;
@@ -30,7 +32,7 @@ const editorConfig = {
     GlobalNode,
     ReadOnlyNode,
     TestDataNode,
-    RawNode
+    RawNode,
   ],
   theme: ExampleTheme,
   onError(error: Error) {
@@ -51,8 +53,8 @@ export default function App() {
           <HistoryPlugin />
           <AutoFocusPlugin />
           <AutoPopulatePlugin blocks={blocks} />
-          <EditorWithDropdown />
-          <TreeViewPlugin/>
+          <TestDataDropDownEventPlugin />
+          <TreeViewPlugin />
         </div>
       </div>
     </LexicalComposer>

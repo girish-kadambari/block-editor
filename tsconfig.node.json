@@ -17,9 +17,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "experimentalDecorators": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "@*": ["*"]
+      "@node/*": ["node/*"],
+      "@plugins/*": ["plugins/*"]
     },
     "declaration": true,
     "declarationDir": "./dist/esm",

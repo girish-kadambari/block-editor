@@ -1,12 +1,13 @@
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $createParagraphNode, $getRoot } from "lexical";
 import { useEffect } from "react";
-
-import { $createGlobalNode } from "../customenode/GlobalNode";
-import { $createParameterNode } from "../customenode/ParameterNode";
-import { $createReadonlyNode } from "../customenode/ReadOnlyNode";
-import { $createRuntimeNode } from "../customenode/RuntimeNode";
-import { $createUiIdentifierNode } from "../customenode/UiIdentifierNode";
+import {
+  $createGlobalNode,
+  $createParameterNode,
+  $createReadonlyNode,
+  $createRuntimeNode,
+  $createUiIdentifierNode,
+} from "../nodes/index";
 import { BlockType } from "../utils";
 
 const createNode = (block: BlockType) => {
