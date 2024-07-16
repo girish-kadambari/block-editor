@@ -11,6 +11,7 @@ export class ParameterNode extends TestDataNode {
     const element = super.createDOM();
     element.className += " parameter-node";
     element.textContent = `@|${this.__value}|`;
+    element.contentEditable = "false"
     return element;
   }
 

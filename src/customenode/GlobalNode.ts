@@ -9,8 +9,9 @@ export class GlobalNode extends TestDataNode {
 
   createDOM() {
     const element = super.createDOM();
-    element.className += "global-node";
+    element.className += " runtime-node";
     element.textContent = `*|${this.__value}|`;
+    element.contentEditable = "false";
     return element;
   }
 

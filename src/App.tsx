@@ -13,7 +13,9 @@ import { TestDataNode } from "./customenode/TestDataNode";
 import { UiIdentifierNode } from "./customenode/UiIdentifierNode";
 import ExampleTheme from "./ExampleTheme";
 import AutoPopulatePlugin from "./plugins/AutoPopulatePlugin";
-import EditorWithDropdown from "./plugins/NodeEventsPlugin";
+import EditorWithDropdown from "./plugins/TestDataDropDownEventPlugin";
+import TreeViewPlugin from "./plugins/TreeViewPlugin";
+import { RawNode } from "./customenode/RawNode";
 
 function Placeholder() {
   return <div className="editor-placeholder">Enter some text...</div>;
@@ -28,6 +30,7 @@ const editorConfig = {
     GlobalNode,
     ReadOnlyNode,
     TestDataNode,
+    RawNode
   ],
   theme: ExampleTheme,
   onError(error: Error) {
@@ -49,6 +52,7 @@ export default function App() {
           <AutoFocusPlugin />
           <AutoPopulatePlugin blocks={blocks} />
           <EditorWithDropdown />
+          <TreeViewPlugin/>
         </div>
       </div>
     </LexicalComposer>

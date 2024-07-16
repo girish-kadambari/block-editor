@@ -15,6 +15,7 @@ import {
   UiIdentifierNode,
 } from "../customenode/UiIdentifierNode";
 import { Dropdown } from "../Dropdown";
+import { $createRawNode, RawNode } from "../customenode/RawNode";
 
 const options = [
   { name: "Plain Text", type: NLP_BLOCK_TYPE.raw },
@@ -39,7 +40,7 @@ const createNode = (type: string, value: string, uuid: string) => {
       return $createRuntimeNode(value, uuid);
     // Add cases for other custom nodes as needed
     default:
-      return $createTextNode(value);
+      return $createRawNode(value, uuid);
   }
 };
 
@@ -107,8 +108,18 @@ const NodeEventsPlugin = () => {
           }
         }}
       />
-      <NodeEventPlugin
+      {/* <NodeEventPlugin
         nodeType={UiIdentifierNode}
+        eventType={"click"}
+        eventListener={(event, editor, nodeKey) => {
+          const node = $getNodeByKey(nodeKey);
+          if (node) {
+            handleEvent(event, editor, nodeKey, node);
+          }
+        }}
+      /> */}
+      <NodeEventPlugin
+        nodeType={RuntimeNode}
         eventType={"click"}
         eventListener={(event, editor, nodeKey) => {
           const node = $getNodeByKey(nodeKey);
@@ -118,7 +129,7 @@ const NodeEventsPlugin = () => {
         }}
       />
       <NodeEventPlugin
-        nodeType={RuntimeNode}
+        nodeType={RawNode}
         eventType={"click"}
         eventListener={(event, editor, nodeKey) => {
           const node = $getNodeByKey(nodeKey);
